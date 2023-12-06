@@ -1,5 +1,8 @@
-prompt = """
-    --- Day 1: Trebuchet?! ---
+import re
+
+from utils import load as _load
+
+prompt = """--- Day 1: Trebuchet?! ---
 Something is wrong with global snow production, and you've been selected to take a look. The Elves have even given you a map; on it, they've used stars to mark the top fifty locations that are likely to be having problems.
 
 You've been doing this long enough to know that to restore snow operations, you need to check all fifty stars by December 25th.
@@ -46,15 +49,10 @@ Your puzzle answer was 54649.
 
 Both parts of this puzzle are complete! They provide two gold stars: **
 """
-import re
-from pathlib import Path
 
 
 def load() -> list[str]:
-    self_file = Path(__file__)
-    input_file = self_file.parent / f"data/{self_file.stem}.txt"
-    with open(input_file) as f:
-        lines = f.readlines()
+    lines = _load(__file__, reader="lines")
     return lines
 
 
